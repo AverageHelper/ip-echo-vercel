@@ -82,6 +82,16 @@
 				"prettier/prettier": "warn",
 				"max-nested-callbacks": "off" // Unit tests involve a lot of nested callbacks
 			}
+		},
+		{
+			"files": ["scripts/**/*.ts"],
+			"parserOptions": {
+				"project": "./tsconfig.test.json",
+				"tsconfigRootDir": "."
+			},
+			"rules": {
+				"unicorn/no-process-exit": "off"
+			}
 		}
 	]
 }
