@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/AverageHelper/ip-echo-vercel#readme",
 	"scripts": {
 		"start": "./node_modules/.bin/vercel pull && npm run build && ./node_modules/.bin/vercel dev",
-		"test": "jest",
+		"test": "./node_modules/.bin/jest",
 		"prebuild": "rm -rf ./dist",
 		"build": "npm run lint && npm run build:only",
 		"build:only": "./node_modules/.bin/tsc",

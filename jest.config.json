@@ -10,11 +10,14 @@
 	},
 	"testRegex": [".*\\.test\\.(t|j)s$"],
 	"transform": {
-		".ts": [
+		"^.+\\.tsx?$": [
 			"ts-jest",
 			{
 				"tsconfig": "./tsconfig.test.json",
-				"useESM": true
+				"useESM": true,
+				"diagnostics": {
+					"ignoreCodes": [151001]
+				}
 			}
 		]
 	},
