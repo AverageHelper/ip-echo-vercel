@@ -60,7 +60,7 @@ further defined and clarified by project maintainers.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may
-be reported by contacting the project team at # TODO: Make an email.
+be reported by contacting the project team at <avghelper.5fh6g@simplelogin.co>.
 All complaints will be reviewed and investigated and will result in a
 response that is deemed necessary and appropriate to the circumstances.
 The project team is obligated to maintain confidentiality with regard to

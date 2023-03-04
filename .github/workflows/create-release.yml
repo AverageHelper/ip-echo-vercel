@@ -32,4 +32,4 @@ jobs:
           tag_name: v${{ steps.changelog.outputs.version }}
           name: v${{ steps.changelog.outputs.version }}
           body: ${{ steps.changelog.outputs.description }}
-          prerelease: ${{ steps.changelog.outputs.versionMajor == 0 || steps.changelog.outputs.status == 'prerelease' }}
+          prerelease: false
