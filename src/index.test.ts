@@ -7,8 +7,19 @@ describe("IP Echo", () => {
 	const app = express() //
 		.use("/", echo);
 
-	// TODO: Has a default export (because Vercel says so)
-	// TODO: Has Vercel Edge config
+	test("has a default export that matches the named export", async () => {
+		// Vercel requires a default export
+		const unit = await import("./index");
+		expect(unit).toHaveProperty("default", echo);
+	});
+
+	test("has a Vercel Edge config", async () => {
+		const unit = await import("./index");
+		expect(unit).toHaveProperty("config");
+		expect(unit.config).toStrictEqual({
+			runtime: "edge",
+		});
+	});
 
 	test("responds with 'Hello, World!'", async () => {
 		const response = await request(app)

@@ -34,3 +34,10 @@ function setCommonHeaders(res: APIResponse): void {
 		)
 		.setHeader("Access-Control-Allow-Origin", "*");
 }
+
+// Vercel Edge config:
+export default echo;
+
+export const config = {
+	runtime: "edge",
+};
