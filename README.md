@@ -8,6 +8,8 @@ A `GET` request to <https://ipv4.average.name/api> will return a JSON string con
 
 Navigating to the root returns an HTML file that defines a redirect to the `/api` endpoint, because Vercel is weird.
 
+The API is documented using [OpenAPI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/AverageHelper/ip-echo-vercel/main/openapi.yaml).
+
 ## No logs?
 
 Not so far as I know! I'm not doing any logging myself, but if Vercel keeps their own logs, that's their prerogative. I cannot prove that I'm running this repo on the above-named endpoint on Vercel's Edge network. If you're concerned, feel free to run your own.
