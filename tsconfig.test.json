@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
 		"declaration": true,
-		"noEmit": false,
+		"esModuleInterop": true,
 		"types": ["node", "jest", "jest-extended"]
 	},
 	"include": ["./*.ts", "./*.cjs", "**/*.ts", "**/*.d.ts", "**/*.json", "scripts/**/*"],
