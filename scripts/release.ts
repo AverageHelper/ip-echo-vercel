@@ -45,6 +45,7 @@ logger.info("previous release:", prevRelease?.version?.toString());
 // Fix the changelog's format (new compare links, etc.), and print the diff of our changes
 logger.info("\n** Spec compliance **");
 
+changelog.format = "markdownlint";
 const newChangelog = changelog.toString();
 writeFileSync(changelogPath, newChangelog);
 
