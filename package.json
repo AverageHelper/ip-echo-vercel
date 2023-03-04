@@ -1,6 +1,6 @@
 {
 	"name": "ip-echo-vercel",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A simple no-logs Vercel Edge function that returns the caller's IP address.",
 	"repository": {
 		"type": "git",
@@ -26,7 +26,8 @@
 		"build:only": "./node_modules/.bin/tsc",
 		"lint": "./node_modules/.bin/eslint .",
 		"lint:fix": "npm run lint -- --fix",
-		"release": "./node_modules/.bin/ts-node --esm -P tsconfig.test.json ./scripts/release.ts"
+		"release": "./node_modules/.bin/ts-node --esm -P tsconfig.test.json ./scripts/release.ts",
+		"deploy": "./node_modules/.bin/vercel pull --environment=production && ./node_modules/.bin/vercel build --prod && ./node_modules/.bin/vercel deploy --prebuilt --prod"
 	},
 	"main": "./dist/index.js",
 	"type": "module",
