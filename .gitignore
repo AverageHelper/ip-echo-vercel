@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+
+# Secret files
+.env
+.vercel
+Dockerfile
+
+# Useless files
+*.log
+logs
+node_modules
+
+# Generated files
+dist
+dist-ssr
+./config
+coverage
+tmp
+temp
+*.local

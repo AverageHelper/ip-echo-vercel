@@ -1,0 +1,27 @@
+{
+	"clearMocks": true,
+	"preset": "ts-jest",
+	"setupFilesAfterEnv": ["jest-extended/all"],
+	"testPathIgnorePatterns": ["/node_modules/"],
+	"modulePathIgnorePatterns": ["<rootDir>/.*/__mocks__"],
+	"moduleNameMapper": {
+		"^src/(.*)": "<rootDir>/src/$1",
+		"^(\\.{1,2}/.*)\\.js$": "$1"
+	},
+	"testRegex": [".*\\.test\\.(t|j)s$"],
+	"transform": {
+		".ts": [
+			"ts-jest",
+			{
+				"tsconfig": "./tsconfig.test.json",
+				"useESM": true
+			}
+		]
+	},
+	"extensionsToTreatAsEsm": [".ts"],
+	"collectCoverage": true,
+	"collectCoverageFrom": ["src/**/*!(.d)!(.test).ts"],
+	"coverageDirectory": "coverage",
+	"coveragePathIgnorePatterns": ["/node_modules/", "jest.config"],
+	"verbose": true
+}
