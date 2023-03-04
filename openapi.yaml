@@ -11,12 +11,17 @@ servers:
 paths:
   "/":
     get:
+      tags:
+        - echo
       summary: Get the caller's IP address
       operationId: ip
       responses:
         200:
-          description: The server works
+          description: The caller's IP address is in the body.
           content:
             application/json:
               schema:
                 type: string
+                example: "127.0.0.1"
+        404:
+          description: The caller's IP address could not be determined.
