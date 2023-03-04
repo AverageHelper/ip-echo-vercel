@@ -4,12 +4,25 @@ export function echo(req: APIRequest, res: APIResponse): void {
 
 	switch (req.method?.toUpperCase()) {
 		// Normal requests:
-		case "GET":
-			res //
-				.status(200)
-				.json("Hello, World!")
-				.end();
+		case "GET": {
+			const IP_HEADER_NAME = "x-real-ip";
+			if ("ip" in req) {
+				res // Express
+					.status(200)
+					.json(req.ip)
+					.end();
+			} else if (req.headers[IP_HEADER_NAME]) {
+				res // Vercel
+					.status(200)
+					.json(req.headers[IP_HEADER_NAME])
+					.end();
+			} else {
+				res // No idea
+					.status(404)
+					.end();
+			}
 			break;
+		}
 
 		// CORS preflight:
 		case "OPTIONS":
