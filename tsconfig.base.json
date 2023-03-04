@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "ES2021",
-		"lib": ["ES2021"],
+		"lib": ["ES2021", "DOM"],
 		"module": "ES2022",
 		"moduleResolution": "node",
 		"useDefineForClassFields": true,
@@ -19,6 +19,7 @@
 		"useUnknownInCatchVariables": true,
 		"importsNotUsedAsValues": "error",
 		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true, // until @vercel/edge has its stuff together...
 		"types": ["node"],
 		"typeRoots": ["./node_modules/@types", "./api"]
 	}

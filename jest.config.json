@@ -1,6 +1,6 @@
 {
 	"clearMocks": true,
-	"preset": "ts-jest",
+	"testEnvironment": "jsdom",
 	"setupFilesAfterEnv": ["jest-extended/all"],
 	"testPathIgnorePatterns": ["/node_modules/"],
 	"modulePathIgnorePatterns": ["<rootDir>/.*/__mocks__", "<rootDir>/.vercel/.*"],
@@ -8,7 +8,7 @@
 		"^api/(.*)": "<rootDir>/api/$1",
 		"^(\\.{1,2}/.*)\\.js$": "$1"
 	},
-	"testRegex": [".*\\.test\\.(t|j)s$"],
+	"testRegex": ["tests/.*\\.test\\.ts$"],
 	"transform": {
 		"^.+\\.tsx?$": [
 			"ts-jest",

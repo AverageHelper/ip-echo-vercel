@@ -1,51 +1,40 @@
-export function echo(req: APIRequest, res: APIResponse): void {
-	setCommonHeaders(res);
+import { ipAddress } from "@vercel/edge";
 
+export function echo(req: Request): Response {
 	switch (req.method?.toUpperCase()) {
 		// Normal requests:
 		case "GET": {
-			const IP_HEADER_NAME = "x-real-ip";
-			if ("ip" in req) {
-				res // Express
-					.status(200)
-					.json(req.ip)
-					.end();
-			} else if (req.headers[IP_HEADER_NAME]) {
-				res // Vercel
-					.status(200)
-					.json(req.headers[IP_HEADER_NAME])
-					.end();
-			} else {
-				res // No idea
-					.status(404)
-					.end();
+			const ip = ipAddress(req);
+			if (!ip) {
+				return new Response(undefined, {
+					status: 404,
+					headers: { ...headers, "Content-Type": "application/json" },
+				});
 			}
-			break;
+			return new Response(JSON.stringify(ip), {
+				status: 200,
+				headers: { ...headers, "Content-Type": "application/json" },
+			});
 		}
 
 		// CORS preflight:
 		case "OPTIONS":
-			res.status(200).end();
-			break;
+			return new Response(undefined, { status: 200, headers });
 
 		// Everything else:
 		default:
-			res.status(405).end();
-			break;
+			return new Response(undefined, { status: 405, headers });
 	}
 }
 
-function setCommonHeaders(res: APIResponse): void {
-	res
-		.setHeader("Cache-Control", "no-store")
-		.setHeader("Vary", "*") // See https://stackoverflow.com/a/54337073 for why "Vary: *" is necessary for Safari
-		.setHeader("X-Clacks-Overhead", "GNU Terry Pratchett")
-		.setHeader(
-			"Access-Control-Allow-Headers",
-			"X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-		)
-		.setHeader("Access-Control-Allow-Origin", "*");
-}
+const headers = {
+	"Cache-Control": "no-store",
+	Vary: "*", // See https://stackoverflow.com/a/54337073 for why "Vary: *" is necessary for Safari
+	"X-Clacks-Overhead": "GNU Terry Pratchett",
+	"Access-Control-Allow-Headers":
+		"X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+	"Access-Control-Allow-Origin": "*",
+};
 
 // Vercel Edge config:
 export default echo;
