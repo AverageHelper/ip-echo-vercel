@@ -3,9 +3,9 @@
 	"preset": "ts-jest",
 	"setupFilesAfterEnv": ["jest-extended/all"],
 	"testPathIgnorePatterns": ["/node_modules/"],
-	"modulePathIgnorePatterns": ["<rootDir>/.*/__mocks__"],
+	"modulePathIgnorePatterns": ["<rootDir>/.*/__mocks__", "<rootDir>/.vercel/.*"],
 	"moduleNameMapper": {
-		"^src/(.*)": "<rootDir>/src/$1",
+		"^api/(.*)": "<rootDir>/api/$1",
 		"^(\\.{1,2}/.*)\\.js$": "$1"
 	},
 	"testRegex": [".*\\.test\\.(t|j)s$"],
@@ -20,7 +20,7 @@
 	},
 	"extensionsToTreatAsEsm": [".ts"],
 	"collectCoverage": true,
-	"collectCoverageFrom": ["src/**/*!(.d)!(.test).ts"],
+	"collectCoverageFrom": ["api/**/*!(.d)!(.test).ts"],
 	"coverageDirectory": "coverage",
 	"coveragePathIgnorePatterns": ["/node_modules/", "jest.config"],
 	"verbose": true

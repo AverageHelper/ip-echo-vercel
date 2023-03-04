@@ -1,4 +1,3 @@
-// TODO: Make this into an Edge function that returns the caller's IP address
 export function echo(req: APIRequest, res: APIResponse): void {
 	setCommonHeaders(res);
 

@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import "jest-extended";
-import { echo } from "./index";
+import { echo } from "../api/index";
 import express from "express";
 import request from "supertest";
 
@@ -11,12 +11,12 @@ describe("IP Echo", () => {
 
 	test("has a default export that matches the named export", async () => {
 		// Vercel requires a default export
-		const unit = await import("./index");
+		const unit = await import("../api/index");
 		expect(unit).toHaveProperty("default", echo);
 	});
 
 	test("has a Vercel Edge config", async () => {
-		const unit = await import("./index");
+		const unit = await import("../api/index");
 		expect(unit).toHaveProperty("config");
 		expect(unit.config).toStrictEqual({
 			runtime: "edge",

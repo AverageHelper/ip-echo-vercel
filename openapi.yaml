@@ -1,0 +1,22 @@
+openapi: 3.0.1
+info:
+  title: IP Echo
+  version: 1.0.0
+  description: A simple no-logs Vercel Edge function that returns the caller's IP address. You can read IP Echo's source code on [GitHub](https://github.com/AverageHelper/ip-echo-vercel).
+  license:
+    name: GNU General Public License v3.0
+    url: https://github.com/AverageHelper/ip-echo-vercel/blob/main/LICENSE
+servers:
+  - url: https://ip.average.name/
+paths:
+  "/":
+    get:
+      summary: Get the caller's IP address
+      operationId: ip
+      responses:
+        200:
+          description: The server works
+          content:
+            application/json:
+              schema:
+                type: string
