@@ -11,9 +11,17 @@ export function echo(req: Request): Response {
 					headers: { ...headers, "Content-Type": "application/json" },
 				});
 			}
-			return new Response(JSON.stringify(ip), {
+
+			const accept = req.headers.get("accept");
+			if (accept?.includes("application/json")) {
+				return new Response(JSON.stringify(ip).concat("\n"), {
+					status: 200,
+					headers: { ...headers, "Content-Type": "application/json" },
+				});
+			}
+			return new Response(ip.concat("\n"), {
 				status: 200,
-				headers: { ...headers, "Content-Type": "application/json" },
+				headers: { ...headers, "Content-Type": "text/html" },
 			});
 		}
 
