@@ -28,9 +28,6 @@ const headers = {
 	Vary: "*", // See https://stackoverflow.com/a/54337073 for why "Vary: *" is necessary for Safari
 	"Cache-Control": "no-store",
 	"X-Clacks-Overhead": "GNU Terry Pratchett",
-};
-
-const cors = {
 	"Access-Control-Allow-Methods": "GET, OPTIONS",
 	"Access-Control-Allow-Headers": "Accept, Content-Length, Content-Type, Date",
 	"Access-Control-Allow-Origin": "*",
@@ -45,7 +42,7 @@ export default function handler(req: Request): Response {
 
 		// CORS preflight:
 		case "OPTIONS":
-			return new Response(undefined, { status: 204, headers: { ...headers, ...cors } });
+			return new Response(undefined, { status: 204, headers });
 
 		// Everything else:
 		default:
