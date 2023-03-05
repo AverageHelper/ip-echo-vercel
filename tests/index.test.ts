@@ -37,6 +37,9 @@ describe("IP Echo", () => {
 		expect(response).toHaveProperty("headers");
 		expect(response.headers.get("Vary")).toBe("*");
 		expect(response.headers.get("Cache-Control")).toBe("no-store");
+		expect(response.headers.get("Access-Control-Allow-Origin")).toBe("*");
+		expect(response.headers.get("Access-Control-Allow-Methods")).toInclude("GET");
+		expect(response.headers.get("Access-Control-Allow-Headers")).toInclude("Accept");
 		expect(response.status).toBe(405);
 		expect(response.body).toBe(null);
 	});
@@ -48,6 +51,9 @@ describe("IP Echo", () => {
 		expect(response.headers.get("Vary")).toBe("*");
 		expect(response.headers.get("Cache-Control")).toBe("no-store");
 		expect(response.headers.get("Content-Type")).toBe("text/html");
+		expect(response.headers.get("Access-Control-Allow-Origin")).toBe("*");
+		expect(response.headers.get("Access-Control-Allow-Methods")).toInclude("GET");
+		expect(response.headers.get("Access-Control-Allow-Headers")).toInclude("Accept");
 		expect(response.status).toBe(200);
 		expect(await response.text()).toBe(TEST_IP.concat("\n"));
 	});
@@ -64,6 +70,9 @@ describe("IP Echo", () => {
 		expect(response.headers.get("Vary")).toBe("*");
 		expect(response.headers.get("Cache-Control")).toBe("no-store");
 		expect(response.headers.get("Content-Type")).toBe("application/json");
+		expect(response.headers.get("Access-Control-Allow-Origin")).toBe("*");
+		expect(response.headers.get("Access-Control-Allow-Methods")).toInclude("GET");
+		expect(response.headers.get("Access-Control-Allow-Headers")).toInclude("Accept");
 		expect(response.status).toBe(200);
 		expect(await response.json()).toBe(TEST_IP);
 	});
