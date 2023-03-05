@@ -51,12 +51,26 @@ describe("IP Echo", () => {
 		expect(response).toHaveProperty("headers");
 		expect(response.headers.get("Vary")).toBe("*");
 		expect(response.headers.get("Cache-Control")).toBe("no-store");
+		expect(response.headers.get("Content-Type")).toBe("text/html");
+		expect(response.status).toBe(200);
+		expect(await response.text()).toBe(TEST_IP.concat("\n"));
+	});
+
+	test("responds with the caller's IP address in JSON", async () => {
+		const req = new window.Request(url, {
+			method: "GET",
+			headers: { [IP_HEADER_NAME]: TEST_IP, Accept: "application/json" },
+		});
+		const response = echo(req);
+		expect(response).toHaveProperty("headers");
+		expect(response.headers.get("Vary")).toBe("*");
+		expect(response.headers.get("Cache-Control")).toBe("no-store");
 		expect(response.headers.get("Content-Type")).toBe("application/json");
 		expect(response.status).toBe(200);
 		expect(await response.json()).toBe(TEST_IP);
 	});
 
-	test("responds with 'unknown' if there is no 'X-Real-IP' header", () => {
+	test("responds with 404 if there is no 'X-Real-IP' header", () => {
 		const req = new window.Request(url, { method: "GET" });
 		const response = echo(req);
 		expect(response.status).toBe(404);

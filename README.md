@@ -4,7 +4,7 @@ A simple no-logs Vercel Edge function that returns the caller's IP address.
 
 ## Usage
 
-A `GET` request to <https://ipv4.average.name/api> will return a JSON string containing the caller's IPv4 address. Note that, because this project is hosted on Vercel, and [Vercel does not support IPv6](https://github.com/orgs/vercel/discussions/47#discussioncomment-4314763), you will only see an IPv4 address from this endpoint.
+A `GET` request to <https://ipv4.average.name/api> will return a string containing the caller's IPv4 address. Note that, because this project is hosted on Vercel, and [Vercel does not support IPv6](https://github.com/orgs/vercel/discussions/47#discussioncomment-4314763), you will only see an IPv4 address from this endpoint.
 
 Navigating to the root returns an HTML file that defines a redirect to the `/api` endpoint, because Vercel is weird.
 
