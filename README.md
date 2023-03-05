@@ -1,4 +1,4 @@
-# ip-echo-vercel
+# IP Echo
 
 A simple no-logs Vercel Edge function that returns the caller's IP address.
 
