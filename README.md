@@ -16,11 +16,11 @@ Navigating to the root returns an HTML file that defines a redirect to the `/api
 The API is documented using [OpenAPI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/AverageHelper/ip-echo-vercel/main/openapi.yaml). You can generate a TypeScript client by plugging our spec file into [oazapfts](https://www.npmjs.com/package/oazapfts):
 
 ```sh
-$ ./node_modules/.bin/oazapfts https://raw.githubusercontent.com/AverageHelper/ip-echo-vercel/main/openapi.yaml ./foo/api.ts
+$ oazapfts https://raw.githubusercontent.com/AverageHelper/ip-echo-vercel/main/openapi.yaml ./ip.ts
 ```
 
 ```ts
-import { ip } from "./foo/api";
+import { ip } from "./ip";
 
 const result = await ip();
 
@@ -33,4 +33,10 @@ if (result.status !== 200) {
 
 ## No logs?
 
-Not so far as I know! I'm not doing any logging myself, but if Vercel keeps their own logs, that's their prerogative. I cannot prove that I'm running this repo on the above-named endpoint on Vercel's Edge network. If you're concerned, feel free to run your own.
+No more than Vercel's normal logging, which looks like this:
+
+![A screenshot of Vercel's connection logs. Included is the time of the request, the request status code, the requested host name, the requested document path on the host, the requester's user agent string, and Vercel's request ID string.](/docs/images/example-logs.png)
+
+There's not much there to identify you, unless you put some personally-identifying information into your request path, or contact me directly and inform me that you made a request.
+
+I'm not doing any additional logging myself. You can read as much [in the code](/api/index.ts), though I suppose I cannot prove that I'm running _this_ repo on the above-named endpoint on Vercel's Edge network. If you're concerned I may be snooping, feel free to run your own instance!
