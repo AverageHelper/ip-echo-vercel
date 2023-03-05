@@ -24,10 +24,17 @@ import { ip } from "./ip";
 
 const result = await ip();
 
-if (result.status !== 200) {
-	console.warn("Couldn't get IP address");
-} else {
-	console.info(result.data); // "1.2.3.4"
+switch (result.status) {
+	case 200:
+		console.info(result.data); // "1.2.3.4"
+		break;
+
+	case 404:
+		console.warn("Couldn't get IP address");
+		break;
+
+	default:
+		console.error("Something went very very wrong!");
 }
 ```
 
