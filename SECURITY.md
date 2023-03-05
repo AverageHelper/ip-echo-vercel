@@ -10,7 +10,7 @@ project.
 
 Thank you for improving the security of IP Echo!
 
-If you discover a security vulnerability in IP Echo, please disclose it by [drafting a security advisory on our GitHub](https://github.com/AverageHelper/ip-echo-vercel/security/advisories/new). I do not yet have a way of paying out bounties for bugs, but I expect to have one set up once this project is profitable.
+If you discover a security vulnerability in IP Echo, please disclose it by [drafting a security advisory on our GitHub](https://github.com/AverageHelper/ip-echo-vercel/security/advisories/new). I do not currently have a way of paying out bounties for bugs. Enjoy the good vibes from knowing you're very helpful!
 
 Report security bugs in third-party modules to the person or team maintaining
 the module.
