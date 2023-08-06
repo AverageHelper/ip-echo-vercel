@@ -31,6 +31,12 @@ const headers = {
 	"Access-Control-Allow-Methods": "GET, OPTIONS",
 	"Access-Control-Allow-Headers": "Accept, Content-Length, Content-Type, Date",
 	"Access-Control-Allow-Origin": "*",
+	"Content-Security-Policy": "default-src 'self'",
+	"X-Content-Type-Options": "nosniff",
+	"X-Frame-Options": "SAMEORIGIN",
+	"Referrer-Policy": "no-referrer",
+	"Permissions-Policy":
+		"accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), clipboard-read=(), clipboard-write=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=*, gamepad=(), geolocation=(), gyroscope=(), identity-credentials-get=(), idle-detection=(), interest-cohort=(), keyboard-map=(), local-fonts=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=*, publickey-credentials-create=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), speaker-selection=(), storage-access=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()",
 };
 
 // Vercel wants the endpoint to be a `default` export:
