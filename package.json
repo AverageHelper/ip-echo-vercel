@@ -11,6 +11,7 @@
 		"vercel",
 		"serverless"
 	],
+
 	"author": "AverageHelper",
 	"license": "GPL-3.0",
 	"bugs": {
