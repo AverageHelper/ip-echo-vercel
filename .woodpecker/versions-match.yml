@@ -8,7 +8,8 @@ when:
 steps:
   check:
     name: Check Versions Match
-    image: node:18
+    image: oven/bun:1.0.11
     commands:
-      - npm ci
-      - npm run release
+      # For some reason, This script doesn't work in ts-node, but only in CI:
+      - bun install
+      - bun ./scripts/release.ts

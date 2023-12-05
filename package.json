@@ -4,7 +4,7 @@
 	"description": "A simple no-logs Vercel Edge function that returns the caller's IP address.",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/AverageHelper/ip-echo-vercel.git"
+		"url": "git+https://codeberg.org/AverageHelper/ip-echo-vercel.git"
 	},
 	"keywords": [
 		"ip",
@@ -14,9 +14,9 @@
 	"author": "AverageHelper",
 	"license": "GPL-3.0",
 	"bugs": {
-		"url": "https://github.com/AverageHelper/ip-echo-vercel/issues"
+		"url": "https://codeberg.org/AverageHelper/ip-echo-vercel/issues"
 	},
-	"homepage": "https://github.com/AverageHelper/ip-echo-vercel#readme",
+	"homepage": "https://codeberg.org/AverageHelper/ip-echo-vercel#readme",
 	"scripts": {
 		"start": "./node_modules/.bin/vercel pull && npm run build && ./node_modules/.bin/vercel dev",
 		"test": "./node_modules/.bin/jest",
@@ -26,9 +26,9 @@
 		"build:only": "./node_modules/.bin/tsc",
 		"lint": "./node_modules/.bin/eslint .",
 		"lint:fix": "npm run lint -- --fix",
-		"release": "./node_modules/.bin/ts-node --esm -P tsconfig.test.json ./scripts/release.ts",
+		"release": "./node_modules/.bin/ts-node-esm -P tsconfig.test.json ./scripts/release.ts",
 		"deploy": "./node_modules/.bin/vercel pull --environment=production && ./node_modules/.bin/vercel build --prod && ./node_modules/.bin/vercel deploy --prebuilt --prod",
-		"create-release": "./node_modules/.bin/ts-node --esm -P tsconfig.test.json ./scripts/createRelease.ts"
+		"create-release": "./node_modules/.bin/ts-node-esm -P tsconfig.test.json ./scripts/createRelease.ts"
 	},
 	"main": "./dist/index.js",
 	"type": "module",
