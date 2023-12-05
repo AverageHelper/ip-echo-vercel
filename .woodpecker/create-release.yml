@@ -9,8 +9,9 @@ when:
 steps:
   changelog:
     name: Create Tag and Release
-    image: node:18
+    image: oven/bun:1.0.11
     commands:
-      - npm ci
-      - npm run create-release # Creates tag and release
+      # For some reason, This script doesn't work in ts-node, but only in CI:
+      - bun install
+      - bun ./scripts/createRelease.ts
     secrets: [codeberg_access_token]
