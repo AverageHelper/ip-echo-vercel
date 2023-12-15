@@ -2,9 +2,11 @@
 
 # Contributing
 
+This project lives primarily at [git.average.name](https://git.average.name/AverageHelper/ip-echo-vercel). Read-only mirrors also exist on [Codeberg](https://codeberg.org/AverageHelper/ip-echo-vercel) and [GitHub](https://github.com/AverageHelper/ip-echo-vercel). Issues or pull requests should be filed at [git.average.name](https://git.average.name/AverageHelper/ip-echo-vercel). You may sign in or create an account directly, or use one of several OAuth 2.0 providers.
+
 ## Issues
 
-[Issues](https://codeberg.org/AverageHelper/ip-echo-vercel/issues/new/choose) are very valuable to this project.
+[Issues](https://git.average.name/AverageHelper/ip-echo-vercel/issues/new/choose) are very valuable to this project.
 
 - Ideas are a valuable source of contributions others can make
 - Problems show where this project is lacking

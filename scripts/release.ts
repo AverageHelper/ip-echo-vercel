@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
 import { assert, enums, string, type } from "superstruct";
 import { parser as changelogParser } from "keep-a-changelog";

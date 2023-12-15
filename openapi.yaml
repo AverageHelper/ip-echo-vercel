@@ -2,10 +2,10 @@ openapi: 3.0.1
 info:
   title: IP Echo
   version: 2.0.0
-  description: A simple no-logs Vercel Edge function that returns the caller's IP address. You can read IP Echo's source code on [Codeberg](https://codeberg.org/AverageHelper/ip-echo-vercel).
+  description: A simple no-logs Vercel Edge function that returns the caller's IP address. You can read IP Echo's source code at [git.average.name](https://git.average.name/AverageHelper/ip-echo-vercel).
   license:
     name: GNU General Public License v3.0
-    url: https://codeberg.org/AverageHelper/ip-echo-vercel/src/branch/main/LICENSE
+    url: https://git.average.name/AverageHelper/ip-echo-vercel/src/branch/main/LICENSE
 servers:
   - url: https://ipv4.average.name/api
 paths:
